@@ -1,0 +1,368 @@
+	<div class="row">
+		<div class="col-md-12 bg-muted">
+			
+			<div class="row">
+			<div class="col-md-5">
+				<h1></h1>
+			</div>
+			
+			</div>
+		</div>
+	</div>	
+<div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="login-content"style="margin-top:20px;background-color:#e9ecef;">
+                        <div class="login-form" style="background-color:#e9ecef;border-style:solid">
+                            <h4>Add Order</h4>
+                            <form>
+							<div class="row" >
+							
+							<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Customer Name</label>
+                                    <input type="text" class="form-control" placeholder="name" ng-model="add_cust_order_data.c_name">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="text" class="form-control" placeholder="mobile" ng-model="add_cust_order_data.mobile">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" class="form-control" placeholder="address" ng-model="add_cust_order_data.address">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Delivery Date</label>
+                                    <input type="date" class="form-control" ng-model="add_cust_order_data.deldate">
+                                </div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Shirt Type</label>
+                                    <select class="form-control" ng-model="add_cust_order_data.shtype" ng-change="display_rate(add_cust_order_data.shtype)">
+									<option value="1">myanela </option>
+									<option value="2">myanela cut</option>
+									<option value="3">apple cut</option>
+									<option value="4">diwar cut</option>
+									<option value="5">sangram_cut</option>
+									<option value="6">Nehru </option>
+									<option value="7">Safari</option>
+									<option value="8">3 Button</option>
+									<option value="9">Bandi</option>
+									<option value="10">Pathani</option>
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Shirt Quantity</label>
+                                    <input type="text" class="form-control"  ng-model="add_cust_order_data.shquantity" ng-change="total_cal(add_cust_order_data.shquantity)" >
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Rate</label>
+                                    <input type="text"  class="form-control" placeholder="rate" ng-model="rate_value" readonly>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="text" class="form-control" placeholder="Total" ng-model="total_data" readonly>
+                                    
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Pant Type</label>
+                                    <select class="form-control" ng-model="add_cust_order_data.pt_type" ng-change="display_pant_rate(add_cust_order_data.pt_type)">
+									
+									<option value="1">Double cross pocket</option>
+									<option value="2">Double plate site Pocket</option>
+									<option value="3">Poona Payjama</option>
+									<option value="4">Nadi Payjama</option>
+									<option value="5">Cross Pocket Narrow Pant</option>
+									<option value="6">Boot Cut Pant</option>
+									<option value="7">Vardi</option>
+									<option value="8">Cross Pocket Mohabatein Pant</option>
+									
+									</select>
+                                </div>
+								</div>
+                                
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Pant Quantity</label>
+                                    <input type="text"  class="form-control" placeholder="pantquality" ng-model="add_cust_order_data.pnquantity" ng-change="pant_total_cal(add_cust_order_data.pnquantity)">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Rate</label>
+                                    <input type="text" class="form-control" placeholder="rate" ng-model="pant_rate_value" readonly>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="email" class="form-control" placeholder="total" ng-model="pant_total_value" readonly>
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-3">
+                                <div class="form-group">
+									<label>Other Description</label>
+                                    <input type="text" class="form-control" placeholder="description" ng-model="add_cust_order_data.description" ng-change="grandTotal()" required>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                 
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                 
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Grand Total</label>
+                                    <input type="text" class="form-control" placeholder="grandtotal" ng-model="grTotal" readonly>
+                                </div>
+								</div>
+							</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-form" style="margin-top: -190px;background-color:#e9ecef;border-style:solid">
+                            <h4>Shirt Measurement</h4>
+                            <form>
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="height" ng-model="add_cust_order_data.height">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Chest</label>
+                                    <input type="text" class="form-control" placeholder="chest" ng-model="add_cust_order_data.chest">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Shoulder</label>
+                                    <input type="text" class="form-control" placeholder="shoulder" ng-model="add_cust_order_data.shoulder">
+                                </div>
+								</div>
+								
+							</div>
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Collar</label>
+                                    <select class="form-control" ng-model="add_cust_order_data.collar">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Sleaves</label>
+                                    <input type="text" class="form-control" placeholder="sleaves" ng-model="add_cust_order_data.sleaves">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Front</label>
+                                    <input type="text" class="form-control" placeholder="front" ng-model="add_cust_order_data.front">
+                                </div>
+								</div>
+								
+							</div>
+							
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Cough</label>
+                                    <select class="form-control" ng-model="add_cust_order_data.cough">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Myani</label>
+                                    <input type="text" class="form-control" placeholder="Myani" ng-model="add_cust_order_data.myani">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Other</label>
+                                    <input type="text" class="form-control" placeholder="Other" ng-model="add_cust_order_data.other">
+                                </div>
+								</div>
+								
+							</div>
+						
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				
+				
+				<div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-form" style="margin-top: -190px;background-color:#e9ecef;border-style:solid">
+                            <h4>Pant Measurement</h4>
+                            <form>
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="Height" ng-model="add_cust_order_data.ptheight">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Waist</label>
+                                    <input type="text" class="form-control" placeholder="waist" ng-model="add_cust_order_data.waist">
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Thyce</label>
+                                    <input type="text" class="form-control" placeholder="thyce" ng-model="add_cust_order_data.thyce">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Knee</label>
+                                    <input type="text" class="form-control" placeholder="knee" ng-model="add_cust_order_data.knee">
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Bottom</label>
+                                    <input type="text" class="form-control" placeholder="bottom" ng-model="add_cust_order_data.bottom">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Seat</label>
+                                    <input type="text" class="form-control" placeholder="seat" ng-model="add_cust_order_data.seat">
+                                </div>
+								</div>
+							</div>
+							
+						
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="col-md-6" style="margin-top: -90px;">
+					<input type="hidden" class="form-control" placeholder="seat" ng-model="add_cust_order_data.c_id">
+					<input type="hidden" class="form-control" placeholder="bottom" ng-model="add_cust_order_data.o_date">
+					</div>
+				</div>	
+				
+				<div id="printable" style="display:none" >
+		Hi..Welcome in print page{{add_cust_order_data.mobile}}
+						<div class="row" >
+							<div class="col-md-3">
+                               
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Name:<b>{{add_cust_order_data.c_name}}</b></label>
+                                    
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Mobile:<b>{{add_cust_order_data.mobile}}</b></label>
+                                    
+                                </div>
+								</div>
+								<div class="col-md-3">
+									<label>Order Date:<b>{{add_cust_order_data.o_date}}</b></label>
+								</div>
+								<div class="col-md-3">
+									<label>Delivery Date:<b>{{add_cust_order_data.deldate}}</b></label>
+								</div>
+								<div class="col-md-3">
+									<label>Address:<b>{{add_cust_order_data.address}}</b></label>
+								</div>
+						</div>
+						<div style="width=100%;background-color:navy">
+						<table border="1">
+						<tr>
+						<th>Sr.NO</th>
+						<th>Description</th>
+						<th>Quantity</th>
+						<th>Rate</th>
+						<th>Total</th>
+						</tr>
+						<tr>
+						<td>1.</td>
+						<td>Shirt:{{shirt_name}}<br>
+							Pant:{{pant_name}}
+						</td>
+						<td>{{add_cust_order_data.shquantity}}<br>
+						{{add_cust_order_data.pnquantity}}
+						</td>
+						<td>{{rate_value}}<br>
+						{{pant_rate_value}}</td>
+						<td>{{total_data}}<br>
+							{{pant_total_value}}</td>
+						</tr>
+						</table>
+						</div>
+			</div>
+				<div class="row">
+					<div class="col-md-6" style="margin-top: -90px;">
+					<input type="submit" value="Submit" ng-click="printDiv_data(printableArea,add_cust_order_data.add_cust_order_data.shtype)"  class="btn-lg btn-info">
+					</div>
+				</div>			
+				
+            </div>
+        </div>
+    </div>

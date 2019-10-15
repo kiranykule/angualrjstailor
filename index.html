@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Dosti Tailors</title>
+
+        <!-- ================= Favicon ================== -->
+        <!-- Standard -->
+        <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+        <!-- Retina iPad Touch Icon-->
+        <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+        <!-- Retina iPhone Touch Icon-->
+        <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+        <!-- Standard iPad Touch Icon-->
+        <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+        <!-- Standard iPhone Touch Icon-->
+        <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+        <!-- Styles -->
+        <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+        <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+        <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+        <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+		
+		 
+        <link href="assets/css/lib/helper.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+		<link href="custom.css" rel="stylesheet">
+
+    </head>
+
+    <body ng-app="myApp" ng-controller="myCtrl" style="background-image: url('bck3.jpg')">
+
+        <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+            <div class="nano">
+                <div class="nano-content">
+                    <div class="logo"><a href="#/!"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Dosti</span></a></div>
+                    <ul>
+                        
+                        <li><a href="#!"><i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> </a>
+                            
+                        </li>
+						
+						<li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Add Order <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="#!addCustomer">Add Order</a></li>
+                                <li><a href="#!orderList" ng-click="delvery_list()">View Order</a></li>
+                                <li><a href="#!customerList" ng-click="customer_list()">View Customer</a></li>
+                            </ul>
+                        </li>
+						<li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Order Status  <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                
+                                <li><a href="#!pendingOrder" ng-click="pending_order_list()">Pending Oder</a></li>
+                                <li><a href="#!deliveryOrder" ng-click="deliver_order_list()">Delivered Oder</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                        
+                       
+                        <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Advance Status  <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                
+                                
+                                <li><a href="#!advanceView" ng-click="advance_list1()">View Advance Details</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-heart"></i> Reports <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+						<ul>
+                                
+                                
+                                <li><a href="#!monthDeliveryReport" ng-click="month_deliver_report()">Monthly Deliver Report</a></li>
+								<li><a href="#!monthPendingReport" ng-click="month_pending_report()">Monthly Pending Report</a></li>
+								<li><a href="#!monthIncomeReport" ng-click="month_income_report()">Monthly Income Report</a></li>
+                                
+                                
+                            </ul>
+                            
+                        </li>
+						</ul>
+                </div>
+            </div>
+        </div>
+        <!-- /# sidebar -->
+
+
+        <div class="header" >
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="float-left">
+                            <div class="hamburger sidebar-toggle">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+						
+						<div class="float-right">
+                            <ul>
+				 <li class="header-icon dib dropdown">
+				  <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black;"><span id="name"></span>
+					<script>
+								var name=sessionStorage.getItem("name");
+								
+								document.getElementById('name').innerHTML=name;
+								if(name == 'null')
+								{
+									alert('Something Wrong Please Login Again');
+									window.location.href='login.html';
+								}
+								
+								</script>
+				  </a>
+
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					
+					<a class="dropdown-item" onclick="logout()">Logout</a>
+					<script>
+												 function logout(){
+													 sessionStorage.removeItem('name');
+												     window.location.href='login.html';
+												 }
+												</script>
+				  </div>
+				</li>
+ 
+                            </ul>
+                        </div>
+						
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content-wrap">
+            <div class="main" ng-view >
+                
+				<div class="row">
+                            
+                        </div>
+                      
+                           
+                               
+                            </div>
+                           
+                                
+                            </div>
+                            
+                            
+                       
+                        
+                    </section>
+					
+                </div>
+            </div>
+        </div>
+        
+        <!-- jquery vendor -->
+		
+        <script src="assets/js/lib/jquery.min.js"></script>
+		
+        <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+        <!-- nano scroller -->
+        <script src="assets/js/lib/menubar/sidebar.js"></script>
+		<script src="assets/js/lib/preloader/pace.min.js"></script>
+        <!-- sidebar -->
+        
+
+        <!-- bootstrap -->
+		<script src="assets/js/lib/bootstrap.min.js"></script>
+
+       <!-- 
+
+	   
+	
+        
+<script src="assets/js/scripts.js"></script>
+		 
+        <!-- scripit init-->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>		
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+<script src="dirPagination.js"></script>
+    </body>
+	
+
+
+
+<script src="tailor_main.js"></script>
+
+
+
+
+</html>
+
+
+

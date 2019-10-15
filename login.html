@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/helper.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary" ng-app="login" ng-controller="loginctrl">
+
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+                        
+                        <div class="login-form">
+                            <h4>Admin Login</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="text" class="form-control" placeholder="Email" ng-model="ldata.email" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" ng-model="ldata.password">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" ng-click="login_verify()">Sign in</button>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+<!-- <script scr="loginctr.js"></script> -->
+<script>
+var lapp=angular.module("login",[]);
+lapp.controller('loginctrl',function($scope,$http,$window,$filter){
+	$scope.ldata={
+		email:'',
+		password:''
+	};
+	$scope.login_verify=function(){
+		$http.post("http://localhost/Tailor/login_check.php",{
+		"username":$scope.ldata.email,
+		"password":$scope.ldata.password
+		}).then(function(response){
+			$scope.data=response.data;
+			if($scope.data=="error")
+			{
+				alert("Invalid login credentials");
+				window.location.href='login.html';
+			}
+			else
+			{
+			alert("Login Successfully");
+			sessionStorage.setItem("name", $scope.data);
+			$scope.today_deliver_orders();
+			$scope.today_orders();
+			$scope.pending_orders();
+			window.location.href='index.html';
+			}
+		});
+		//alert(JSON.stringify($scope.ldata));
+	};
+	$scope.today_deliver_orders=function(){
+	var date=$filter("date")(new Date(), "dd/MM/yyyy");
+		$http.post("http://localhost/Tailor/get_today_delivered.php?date="+date).then(function(response){
+			//alert(response.data);
+			$scope.today_deliver_order=response.data;
+			//alert($scope.today_deliver_order);
+			sessionStorage.setItem("deliver_order", $scope.today_deliver_order);
+		});
+	
+	};
+	
+	$scope.today_orders=function(){
+	
+		$http.post("http://localhost/Tailor/get_today_order.php").then(function(response){
+			//alert(response.data);
+			$scope.today_order=response.data;
+			sessionStorage.setItem("today_order", $scope.today_order);
+		});
+	};
+	
+	$scope.pending_orders=function(){
+	
+		$http.post("http://localhost/Tailor/get_pending_order.php").then(function(response){
+			//alert(response.data);
+			$scope.pen_order=response.data;
+			sessionStorage.setItem("pen_order", $scope.pen_order);
+		});
+	};
+})
+</script> 
+</html>

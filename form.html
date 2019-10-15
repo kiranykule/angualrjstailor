@@ -1,0 +1,420 @@
+	<div class="row">
+		<div class="col-md-12 bg-muted">
+			
+			<div class="row">
+			<div class="col-md-5">
+				<h1></h1>
+			</div>
+			
+			<div class="col-md-12 text-center" >
+			  <button type="button" class="btn btn-primary" id='both'>Both</button>
+			  <button type="button" class="btn btn-primary" id='shirt'>shirt</button>
+			  <button type="button" class="btn btn-primary" id='pant'>pant</button>
+			</div>
+			</div>
+		</div>
+	</div>	
+<div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="login-content" style="margin-top:20px;background-color:#e9ecef;">
+                        <div class="login-form" style="margin-top:20px;background-color:#e9ecef;border-style:solid">
+                           <center> <h3>Add Order</h3> </center>
+                            <form>
+							<div class="row" >
+							<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Customer Name</label>
+                                    <input type="text" class="form-control" placeholder="name" id="name" ng-model="customer.name">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="text" class="form-control" placeholder="mobile" ng-model="customer.mobile">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" class="form-control" placeholder="address" ng-model="customer.address">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Delivery Date</label>
+                                    <input type="date" class="form-control" ng-model="customer.deldate">
+                                </div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-3">
+                                <div class="form-group" id="sh_type">
+                                    <label>Shirt Type</label>
+                                    <select class="form-control" ng-model="customer.shtype" ng-change="display_rate(customer.shtype)">
+									<option value="1">myanela </option>
+									<option value="2">myanela cut</option>
+									<option value="3">apple cut</option>
+									<option value="4">diwar cut</option>
+									<option value="5">sangram_cut</option>
+									<option value="6">Nehru </option>
+									<option value="7">Safari</option>
+									<option value="8">3 Button</option>
+									<option value="9">Bandi</option>
+									<option value="10">Pathani</option>
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group" id="shirt_quantity">
+                                    <label>Shirt Quantity</label>
+                                    <input type="number" min="0" class="form-control"  ng-model="customer.shquantity" ng-change="total_cal(customer.shquantity)" >
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group" id="shirt_rate">
+                                    <label>Rate</label>
+                                    <input type="text"  class="form-control" placeholder="rate" ng-model="rate_value" readonly>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group" id="shirt_total">
+                                    <label>Total</label>
+                                    <input type="text" class="form-control" placeholder="Total" ng-model="total_data" readonly>
+                                    
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							
+								<div class="col-md-3">
+                                <div class="form-group" id="panttype">
+                                    <label>Pant Type</label>
+                                    <select class="form-control" ng-model="customer.pt_type" ng-change="display_pant_rate(customer.pt_type)">
+									
+									<option value="1">Double cross pocket</option>
+									<option value="2">Double plate site Pocket</option>
+									<option value="3">Poona Payjama</option>
+									<option value="4">Nadi Payjama</option>
+									<option value="5">Cross Pocket Narrow Pant</option>
+									<option value="6">Boot Cut Pant</option>
+									<option value="7">Vardi</option>
+									<option value="8">Cross Pocket Mohabatein Pant</option>
+									
+									</select>
+                                </div>
+								</div>
+                                
+								<div class="col-md-3" id="pant_quantity">
+                                <div class="form-group">
+                                    <label>Pant Quantity</label>
+                                    <input type="number" min="0" class="form-control" placeholder="pantquality" ng-model="customer.pnquantity" ng-change="pant_total_cal(customer.pnquantity)">
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group" id="pant_rate">
+                                    <label>Rate</label>
+                                    <input type="text" class="form-control" placeholder="rate" ng-model="pant_rate_value" readonly>
+                                </div>
+								
+								</div>
+								<div class="col-md-3" id="pant_total">
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="email" class="form-control" placeholder="total" ng-model="pant_total_value" readonly>
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-3">
+                                <div class="form-group">
+									<label>Other Description</label>
+                                    <input type="text" class="form-control" placeholder="description" ng-model="customer.description" ng-change="grandTotal()" required>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                 <div class="form-group">
+									
+                                    <input type="hidden" class="form-control" placeholder="description" ng-model="shirt_name">
+                                </div>
+								<div class="form-group">
+									
+                                    <input type="hidden" class="form-control" placeholder="description" ng-model="pant_name">
+                                </div>
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                 
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Grand Total</label>
+                                    <input type="text" class="form-control" placeholder="grandtotal" ng-model="grTotal" readonly>
+                                </div>
+								</div>
+							</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="col-lg-6"  id="shirtt">
+                    <div class="login-content">
+                        <div class="login-form" style="margin-top: -190px;background-color:#e9ecef;border-style:solid">
+                            <center><h3>Shirt Measurement</h3></center>
+                            <form>
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="height" ng-model="sh_measurement.height">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Chest</label>
+                                    <input type="text" class="form-control" placeholder="chest" ng-model="sh_measurement.chest">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Shoulder</label>
+                                    <input type="text" class="form-control" placeholder="shoulder" ng-model="sh_measurement.shoulder">
+                                </div>
+								</div>
+								
+							</div>
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Collar</label>
+                                    <select class="form-control" ng-model="sh_measurement.collar">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Sleaves</label>
+                                    <input type="text" class="form-control" placeholder="sleaves" ng-model="sh_measurement.sleaves">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Front</label>
+                                    <input type="text" class="form-control" placeholder="front" ng-model="sh_measurement.front">
+                                </div>
+								</div>
+								
+							</div>
+							
+							<div class="row">
+							<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Cough</label>
+                                    <select class="form-control" ng-model="sh_measurement.cough">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									
+									</select>
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Myani</label>
+                                    <input type="text" class="form-control" placeholder="Myani" ng-model="sh_measurement.myani">
+                                </div>
+								</div>
+								<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Other</label>
+                                    <input type="text" class="form-control" placeholder="Other" ng-model="sh_measurement.other">
+                                </div>
+								</div>
+								
+							</div>
+						
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				
+				
+				<div class="col-lg-6" id="pantt">
+                    <div class="login-content" style="background-color:#e9ecef" >
+                        <div class="login-form" style="margin-top: -190px;background-color:#e9ecef;border-style:solid">
+                            <center><h3>Pant Measurement</h3></center>
+                            <form>
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="Height" ng-model="pt_measurement.ptheight">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Waist</label>
+                                    <input type="text" class="form-control" placeholder="waist" ng-model="pt_measurement.waist">
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Thyce</label>
+                                    <input type="text" class="form-control" placeholder="thyce" ng-model="pt_measurement.thyce">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Knee</label>
+                                    <input type="text" class="form-control" placeholder="knee" ng-model="pt_measurement.knee">
+                                </div>
+								</div>
+							</div>
+							
+							<div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Bottom</label>
+                                    <input type="text" class="form-control" placeholder="bottom" ng-model="pt_measurement.bottom">
+									<input type="hidden" class="form-control" placeholder="bottom" ng-model="customer.o_date">
+                                </div>
+								</div>
+								<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Seat</label>
+                                    <input type="text" class="form-control" placeholder="seat" ng-model="pt_measurement.seat">
+                                </div>
+								
+								</div>
+							</div>
+							
+						
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				<div id="printable" style="display:none" >
+		Hi..Welcome in print page{{customer.mobile}}
+						<div class="row" >
+							<div class="col-md-3">
+                               
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Name:<b>{{customer.name}}</b></label>
+                                    
+                                </div>
+								</div>
+								<div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Mobile:<b>{{customer.mobile}}</b></label>
+                                    
+                                </div>
+								</div>
+								<div class="col-md-3">
+									<label>Order Date:<b>{{customer.o_date}}</b></label>
+								</div>
+								<div class="col-md-3">
+									<label>Delivery Date:<b>{{customer.deldate}}</b></label>
+								</div>
+								<div class="col-md-3">
+									<label>Address:<b>{{customer.address}}</b></label>
+								</div>
+						</div>
+						<div style="width=100%;background-color:navy">
+						<table border="1">
+						<tr>
+						<th>Sr.NO</th>
+						<th>Description</th>
+						<th>Quantity</th>
+						<th>Rate</th>
+						<th>Total</th>
+						</tr>
+						<tr>
+						<td>1.</td>
+						<td>Shirt:{{shirt_name}}<br>
+							Pant:{{pant_name}}
+						</td>
+						<td>{{customer.shquantity}}<br>
+						{{customer.pnquantity}}
+						</td>
+						<td>{{rate_value}}<br>
+						{{pant_rate_value}}</td>
+						<td>{{total_data}}<br>
+							{{pant_total_value}}</td>
+						</tr>
+						</table>
+						</div>
+			</div>
+				
+				
+				
+				
+            </div>
+			<div class="row text-center">
+					<div class="col-md-12" style="margin-top: -90px;">
+					<input type="submit" value="Submit" ng-click="printDiv(printableArea,customer.pt_type,customer.shtype)" class="btn-lg btn-info">
+					</div>
+					
+				</div>
+			
+        </div>
+    </div>
+	<script>
+	$(document).ready(function(){
+	  $('#both').click(function(){
+		$("#shirtt").show();		
+		$("#pantt").show();
+		$("#sh_type").show();
+		$("#shirt_quantity").show();
+		$("#shirt_rate").show();
+		$("#shirt_total").show();
+		$("#panttype").show();
+		$("#pant_quantity").show();
+		$("#pant_rate").show();
+		$("#pant_total").show();
+		
+	  });
+	  $('#shirt').click(function(){
+		$("#pantt").hide();
+		$("#panttype").hide();
+		$("#pant_quantity").hide();
+		$("#pant_rate").hide();
+		$("#pant_total").hide();
+		$("#shirtt").show();
+		$("#shirtt").css("width","100% !important");
+	  });
+	  $('#pant').click(function(){
+		$("#pantt").show();
+		$("#sh_type").hide();
+		$("#shirt_quantity").hide();
+		$("#shirt_rate").hide();
+		$("#shirt_total").hide();
+		$("#panttype").show();
+		$("#pant_quantity").show();
+		$("#pant_rate").show();
+		$("#pant_total").show();
+		$("#pantt").css("width","100% !important");
+		$("#shirtt").hide();
+	  });
+	});
+	
+	</script>

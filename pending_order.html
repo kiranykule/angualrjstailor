@@ -1,0 +1,87 @@
+
+
+<div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row" ng-init="pending_order_list()">
+                        <div class="col-lg-12">
+                            <div class="card">
+							<div>
+				<center><h4>Pending Order List</h4></center>
+				</div>
+                                <div class="bootstrap-data-table-panel">
+                                    <div class="table-responsive" style="overflow:overlay;" >
+									<div class="form-group float-right">
+                                    <label>Search</label>
+                                    <input type="text" class="form-control" ng-model="search" placeholder="search" />
+                                </div>
+                                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+													<th>Name</th>
+													<th>Mobile</th>
+													<th>Address</th>
+                                                    
+                                                    <th>Shirt Quantity</th>
+                                                    <th>Pant Quantity</th>
+                                                    <th>Delvery Date</th>
+													
+                                                    <th>Shirt Type</th>
+                                                    <th>Pant Type</th>
+                                                    <th>SHirt Rate</th>
+													<th>Shirt Total</th>
+                                                    <th>Pant Rate</th>
+                                                    <th>Pant Total</th>
+                                                    <th>Grand Total</th>
+													
+													<th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody  >
+                                                
+                                                <tr dir-paginate="da in pending_data| itemsPerPage:5| filter:search">
+												
+												<td>{{da.c_name}}</td>
+                                                    <td>{{da.mobile}}</td>
+                                                    <td>{{da.address}}</td>
+                                                    
+                                                    <td>{{da.shirt_quantity}}</td>
+                                                    <td>{{da.pant_quantity}}</td>
+                                                    <td>{{da.deliver_date}}</td>
+													
+													<td>{{pending_shirt[$index]}}</td>
+                                                    <td>{{pending_pant[$index]}}</td>
+                                                    <td>{{da.sh_rate}}</td>
+													<td>{{da.sh_total}}</td>
+                                                    <td>{{da.pnt_rate}}</td>
+                                                    <td>{{da.pnt_total}}</td>
+                                                    <td>{{da.grandTotal}}</td>
+													
+													<td><button ng-click="change_status(da.cl_id)" class="btn btn-sm btn-primary">Deliver</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+								<dir-pagination-controls></dir-pagination-controls>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!-- /# row -->
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer">
+                                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+	

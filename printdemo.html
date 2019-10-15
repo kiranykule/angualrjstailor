@@ -1,0 +1,21 @@
+<body ng-app="prapp" ng-controller="prctrl">
+<div id="printable">
+    Print this div
+  </div>
+  <button ng-click="printDiv('printableArea');">Print Div</button>
+  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+
+<script>
+var app=angular.module("prapp",[]);
+app.controller("prctrl",function($scope){
+$scope.printDiv = function(divName) {
+  var printContents = document.getElementById('printable').innerHTML;
+  var popupWin = window.open('', '_blank', 'width=300,height=300');
+  popupWin.document.open();
+  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+  popupWin.document.close();
+} 
+});
+</script>
